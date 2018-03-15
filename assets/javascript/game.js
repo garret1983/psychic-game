@@ -5,7 +5,7 @@ var guessesLettersSoFar = []
 
 var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-document.onkey = function (event) {
+document.onkeyup = function (event) {
     var userGuess = string.fromCharCode(event.keycode).toLowerCase();
     var computerGuess = computerChoices[math.floor(math.random() * computerChoices.length)];
     guessesSoFar.push(userguess);
@@ -26,6 +26,7 @@ document.onkey = function (event) {
 
     else if (userGuess !== computerGuess) {
         guessesLeft--;
+        alert("you still lose!"); 
     }
 
 
@@ -43,4 +44,6 @@ document.onkey = function (event) {
         "<p>Your Guesses so far: " +
         guessesSoFar +
         "</p>"
+        
 }
+
