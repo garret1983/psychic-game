@@ -1,33 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="game.js">
-    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="game.js">
+    <link rel="stylesheet" type="text/css" href="reset.css">
+
 </head>
+
 <body>
-    <!-- put at the bottom -->
-    <script src="assets/javascript/game.js"></script>
+    <div id="game">
+        <h1>The Psychic Game</h1>
+        <p>Guess what letter I'm thinking of!</p>
+        <p>Wins: </p>
+        <p>Losses: </p>
+        <p>Guesses Left: </p>
+        <p>Your Guesses so far: </p>
+    </div>
+    <script type="text/javascript">
 
-<h1>The Psychic Game</h1>
+        var wins = 0;
+        var losses = 0;
+        var guessesLeft = 9;
+        var guessesLettersSoFar = []
 
-<p>What Letter am I Thinking Of?</p>
+        var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-<p>Wins:</p>
+        document.onkey = function (event) {
+            var userGuess = string.fromCharCode(event.keycode).toLowerCase();
+            var computerGuess = computerChoices[math.floor(math.random() * computerChoices.length)];
+            guessesSoFar.push(userguess);
 
-<P>Losses:</P>
+            if (userGuess === computerGuess) {
+                wins++;
+                alert("you won!");
+                guessesLeft = 9;
+                guessesSoFar.length = 0;
+            }
 
-<p>Guesses Left:</p>
+            else if (guessesLeft === 0) {
+                losses++;
+                alert("you didnt win...you suck");
+                guessesLeft = 9;
+                gussesSoFar.length = 0;
+            }
 
-<p>Your Guesses So Far:</p>
+            else if (userGuess !== computerGuess) {
+                guessesLeft--;
+            }
 
 
-
-
-
+            var html = "<h1>The Psychic Game</h1>" +
+                "<p>Guess what letter I'm thinking of!</p>" +
+                "<p>Total Wins: " +
+                wins +
+                "</p>" +
+                "<p>Total Losses: " +
+                losses +
+                "</p>" +
+                "<p>Guesses Left: " +
+                guessesLeft +
+                "</p>" +
+                "<p>Your Guesses so far: " +
+                guessesSoFar +
+                "</p>"
+        }
+    </script>
 
 </body>
+
 </html>
