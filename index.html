@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="game.js">
-    <link rel="stylesheet" type="text/css" href="reset.css">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 
 </head>
 
@@ -20,35 +20,37 @@
         <p>Guesses Left: </p>
         <p>Your Guesses so far: </p>
     </div>
-    <script type="text/javascript">
+
+    <script type="text/javascript" src="assets/javascript/game.js">
 
         var wins = 0;
         var losses = 0;
         var guessesLeft = 9;
-        var guessesLettersSoFar = []
+        var guessesSoFar = []
 
         var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-        document.onkey = function (event) {
+        document.onkeyup = function (event) {
+         
             var userGuess = string.fromCharCode(event.keycode).toLowerCase();
             var computerGuess = computerChoices[math.floor(math.random() * computerChoices.length)];
             guessesSoFar.push(userguess);
 
-            if (userGuess === computerGuess) {
+            if ((userGuess === computerGuess)) {
                 wins++;
                 alert("you won!");
                 guessesLeft = 9;
                 guessesSoFar.length = 0;
             }
 
-            else if (guessesLeft === 0) {
+            else if ((guessesLeft === 0)) {
                 losses++;
                 alert("you didnt win...you suck");
                 guessesLeft = 9;
                 gussesSoFar.length = 0;
             }
 
-            else if (userGuess !== computerGuess) {
+            else if ((userGuess !== computerGuess)) {
                 guessesLeft--;
             }
 
